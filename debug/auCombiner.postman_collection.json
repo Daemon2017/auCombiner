@@ -1,0 +1,38 @@
+{
+	"info": {
+		"_postman_id": "de240d27-900c-4305-b3e0-70a1e92793b9",
+		"name": "auCombiner",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "combine",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "csv_files",
+							"type": "file",
+							"src": []
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/combine",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"combine"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
