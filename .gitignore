@@ -1,5 +1,7 @@
 .github/
 .ipynb_checkpoints/
 .idea/
-back/data/
+data/
 *.csv
+*.yaml
+*.yml
