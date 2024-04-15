@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="shortcut icon" href="#"/>
+
+    <title>auCombiner</title>
+
+    <script src="js/FileSaver.js"></script>
+    <script src="js/main.js"></script>
+
+    <style>
+        .column {
+            float: left;
+            width: 50%;
+        }
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+    </style>
+</head>
+
+<body>
+<form style="width: 66%">
+    <div class="center">
+        <h2>auCombiner</h2>
+    </div>
+    <div class="row">
+        <div class="column">
+            <a href="https://github.com/Daemon2017/auCombiner">auCombiner</a> это инструмент,
+            позволяющий из нескольких CSV-файлов собрать один CSV-файл, содержащий наиболее частые аллели.
+        </div>
+        <div class="column">
+            <a href="https://github.com/Daemon2017/auCombiner">auCombiner</a> is a tool,
+            that allows to assemble one CSV-file from several CSV-files containing the most common alleles.
+        </div>
+    </div>
+    <div class="row">
+        <div class="column">
+            <label for="fileID">ZIP-файл с CSV-файлами внутри: </label>
+        </div>
+        <div class="column">
+            <label for="fileID">ZIP-file with CSV-files inside: </label>
+        </div>
+    </div>
+    <div>
+        <input type="file" id="fileID" accept="application/zip" style="width: 100%">
+    </div>
+    <div class="row">
+        <div class="column">
+            Предупреждение: подготовка ответа может занять до 3 минут.
+        </div>
+        <div class="column">
+            Warning: it may take up to 3 minutes to prepare a response.
+        </div>
+    </div>
+    <div>
+        <input type="button" onClick="getLink()" value="Combine" style="width: 100%"/>
+    </div>
+    <div>
+        <textarea id="statusID" rows="3" wrap="off" style="width: 100%"></textarea>
+    </div>
+</form>
+</body>
+
+</html>

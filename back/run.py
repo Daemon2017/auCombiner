@@ -27,8 +27,8 @@ client = boto3.client(
 )
 
 
-@app.route('/put_object', methods=['GET'])
-def put_object():
+@app.route('/get_link', methods=['GET'])
+def get_link():
     rq_id = request.headers['key']
     signed_url = client.generate_presigned_url(
         'put_object',
@@ -47,13 +47,13 @@ def combine():
     if not os.path.exists(rq_id):
         os.makedirs(rq_id)
     client.download_file(bucket_name, rq_id + '.zip', os.path.join(rq_id, file_name))
+    client.delete_object(Bucket=bucket_name, Key=rq_id + '.zip')
     with zipfile.ZipFile(os.path.join(rq_id, file_name), 'r') as zip:
         zip.extractall(rq_id)
     try:
         os.remove(os.path.join(rq_id, file_name))
     except OSError:
         pass
-    client.delete_object(Bucket=bucket_name, Key=rq_id + '.zip')
 
     dfs = []
     for file in list(filter(lambda f: f.lower().endswith('.csv'), os.listdir(rq_id))):

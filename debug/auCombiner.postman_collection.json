@@ -17,14 +17,14 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:8080/put_object",
+					"raw": "http://localhost:8080/get_link",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"put_object"
+						"get_link"
 					]
 				}
 			},
