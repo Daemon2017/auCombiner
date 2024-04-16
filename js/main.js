@@ -11,7 +11,7 @@ function getLink() {
     }
     xhr.responseType = "text";
 
-    xhr.open("GET", "http://localhost:8080/get_link");
+    xhr.open("GET", "https://bba7i9qihm3snnrvme3r.containers.yandexcloud.net/get_link");
     xhr.setRequestHeader("key", uuid);
 
     xhr.send();
@@ -47,7 +47,7 @@ function combine(uuid) {
     }
     xhr.responseType = "text";
 
-    xhr.open("POST", "http://localhost:8080/combine");
+    xhr.open("POST", "https://bba7i9qihm3snnrvme3r.containers.yandexcloud.net/combine");
     xhr.setRequestHeader("key", uuid);
 
     xhr.send();
