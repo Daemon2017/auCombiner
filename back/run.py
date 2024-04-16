@@ -71,10 +71,13 @@ def combine():
                 merged_df = pd.merge(merged_df, renamed_df, on=support_columns, how='outer')
         merged_support_df = merged_df[support_columns].copy()
         merged_values_df = merged_df.drop(columns=support_columns).copy()
+        del merged_df
 
         mode_df = merged_values_df.mode(axis=1)
+        del merged_values_df
         merged_support_df['RESULT'] = np.where(mode_df.count(axis=1) == 1, mode_df[0], '--')
         merged_support_df.to_csv(os.path.join(rq_id, 'combined.csv'), sep=',', index=False, header=True)
+        del merged_support_df
 
         client.upload_file(os.path.join(rq_id, 'combined.csv'), bucket_name, rq_id + '.csv')
         signed_url = client.generate_presigned_url(
